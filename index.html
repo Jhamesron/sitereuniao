@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Vendas</title>
+    <!-- Google Fonts para uma tipografia mais profissional -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <!-- Incluindo Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Incluindo o Chart.js via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cabeçalho com abas -->
+    <header>
+        <h1>Dashboard de Vendas</h1>
+        <nav class="tabs">
+            <button class="tab-button active" onclick="openTab('vendasMensais')">Vendas Mensais 2024/2025</button>
+            <button class="tab-button" onclick="openTab('percentualVendas')">Percentual de Vendas - Abril</button>
+            <button class="tab-button" onclick="openTab('vendasFranui')">Vendas Franui</button>
+            <button class="tab-button" onclick="openTab('vendasBrownie')">Vendas Brownie da Bia</button>
+            <button class="tab-button" onclick="openTab('vendasTerere')">Vendas Kit Tereré</button>
+        </nav>
+    </header>
+
+    <!-- Conteúdo das abas -->
+    <!-- Aba 1: Vendas Mensais 2024/2025 -->
+    <div id="vendasMensais" class="tab-content active">
+        <h2>Gráficos de Vendas Mensais (2024 vs 2025)</h2>
+        <!-- Gráfico de Barras Agrupadas -->
+        <div class="chart-container">
+            <canvas id="barrasChart"></canvas>
+        </div>
+        <!-- Gráfico de Linhas -->
+        <div class="chart-container">
+            <canvas id="linhasChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Aba 2: Percentual de Vendas - Abril -->
+    <div id="percentualVendas" class="tab-content">
+        <h2>Percentual de Vendas 24/25 - Mês de Abril</h2>
+        <div class="table-container">
+            <table id="salesTable">
+                <thead>
+                    <tr>
+                        <th>Lojas</th>
+                        <th>2024</th>
+                        <th>2025</th>
+                        <th>10%</th>
+                        <th>%</th>
+                        <th>P/ %</th>
+                        <th>Realizado</th>
+                        <th>% S/ Inflação</th>
+                        <th>R$ S/ Inflação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="loja-1">
+                        <td>Loja 1</td>
+                        <td>R$ 174.035,84</td>
+                        <td>R$ 157.248,49</td>
+                        <td>R$ 17.403,58</td>
+                        <td class="negative"><i class="fas fa-arrow-down"></i> -9,65%</td>
+                        <td class="negative">-R$ 34.190,90</td>
+                        <td class="negative">-R$ 16.787,35</td>
+                        <td class="negative"><i class="fas fa-arrow-down"></i> -14,65%</td>
+                        <td class="negative">-R$ 25.489,14</td>
+                    </tr>
+                    <tr class="loja-2">
+                        <td>Loja 2</td>
+                        <td>R$ 151.581,52</td>
+                        <td>R$ 185.981,40</td>
+                        <td>R$ 15.158,15</td>
+                        <td class="positive"><i class="fas fa-arrow-up"></i> 22,69%</td>
+                        <td class="positive">R$ 19.241,70</td>
+                        <td class="positive">R$ 34.399,88</td>
+                        <td class="positive"><i class="fas fa-arrow-up"></i> 17,69%</td>
+                        <td class="positive">R$ 26.820,80</td>
+                    </tr>
+                    <tr class="loja-3">
+                        <td>Loja 3</td>
+                        <td>R$ 262.219,60</td>
+                        <td>R$ 266.761,37</td>
+                        <td>R$ 26.221,96</td>
+                        <td class="positive"><i class="fas fa-arrow-up"></i> 1,73%</td>
+                        <td class="negative">-R$ 21.680,20</td>
+                        <td class="positive">R$ 4.541,77</td>
+                        <td class="negative"><i class="fas fa-arrow-down"></i> -3,27%</td>
+                        <td class="negative">-R$ 8.569,21</td>
+                    </tr>
+                    <tr class="loja-4">
+                        <td>Loja 4</td>
+                        <td>R$ 354.752,44</td>
+                        <td>R$ 384.713,08</td>
+                        <td>R$ 35.475,24</td>
+                        <td class="positive"><i class="fas fa-arrow-up"></i> 8,45%</td>
+                        <td class="negative">-R$ 5.514,60</td>
+                        <td class="positive">R$ 29.960,64</td>
+                        <td class="positive"><i class="fas fa-arrow-up"></i> 3,45%</td>
+                        <td class="positive">R$ 12.223,02</td>
+                    </tr>
+                    <tr class="loja-5">
+                        <td>Loja 5</td>
+                        <td>R$ 275.182,14</td>
+                        <td>R$ 286.320,00</td>
+                        <td>R$ 27.518,21</td>
+                        <td class="positive"><i class="fas fa-arrow-up"></i> 4,05%</td>
+                        <td class="negative">-R$ 16.380,40</td>
+                        <td class="positive">R$ 11.137,86</td>
+                        <td class="negative"><i class="fas fa-arrow-down"></i> -0,95%</td>
+                        <td class="negative">-R$ 2.621,25</td>
+                    </tr>
+                    <tr class="loja-6">
+                        <td>Loja 6</td>
+                        <td>R$ 227.282,90</td>
+                        <td>R$ 244.128,03</td>
+                        <td>R$ 22.728,29</td>
+                        <td class="positive"><i class="fas fa-arrow-up"></i> 7,41%</td>
+                        <td class="negative">-R$ 5.883,20</td>
+                        <td class="positive">R$ 16.845,13</td>
+                        <td class="positive"><i class="fas fa-arrow-up"></i> 2,41%</td>
+                        <td class="positive">R$ 5.480,99</td>
+                    </tr>
+                    <tr class="total">
+                        <td>Total</td>
+                        <td>R$ 1.445.054,44</td>
+                        <td>R$ 1.525.152,37</td>
+                        <td>R$ 144.505,44</td>
+                        <td class="positive"><i class="fas fa-arrow-up"></i> 5,54%</td>
+                        <td class="negative">-R$ 64.407,50</td>
+                        <td class="positive">R$ 80.097,93</td>
+                        <td class="positive"><i class="fas fa-arrow-up"></i> 0,54%</td>
+                        <td class="positive">R$ 7.845,21</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Aba 3: Vendas Franui -->
+    <div id="vendasFranui" class="tab-content">
+        <h2>Vendas de Produtos Franui</h2>
+        <div class="chart-container">
+            <canvas id="franuiChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Aba 4: Vendas Brownie da Bia -->
+    <div id="vendasBrownie" class="tab-content">
+        <h2>Vendas de Brownies da Bia</h2>
+        <div class="chart-container">
+            <canvas id="brownieChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Aba 5: Vendas Kit Tereré -->
+    <div id="vendasTerere" class="tab-content">
+        <h2>Vendas de Kit Tereré Santo Antônio</h2>
+        <div class="chart-container">
+            <canvas id="terereChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Arquivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

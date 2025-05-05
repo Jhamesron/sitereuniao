@@ -1,0 +1,183 @@
+/* Estilização Geral */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f4f4f4 0%, #e0e0e0 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Estilização do Cabeçalho e Abas */
+header {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color coronation: #2c3e50;
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin: 20px 0 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: 500;
+    color: #2c3e50;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.tab-button:hover {
+    background: #f5f7fa;
+    transform: translateY(-2px);
+}
+
+.tab-button.active {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.tab-content {
+    display: none;
+    width: 100%;
+    max-width: 900px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Estilização dos Gráficos */
+.chart-container {
+    max-width: 900px;
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.chart-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Estilização da Tabela */
+.table-container {
+    max-width: 900px;
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: right;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+th:first-child, td:first-child {
+    text-align: left;
+}
+
+tr {
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+tr:hover {
+    background: #f5f7fa;
+    transform: scale(1.01);
+}
+
+/* Cores das lojas com gradientes */
+tr.loja-1 {
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0.1)); /* Gradiente vermelho para maior decrescimento */
+}
+tr.loja-2 {
+    background: linear-gradient(to right, rgba(255, 215, 0, 0.3), rgba(255, 215, 0, 0.1)); /* Gradiente dourado para maior crescimento */
+}
+tr.loja-3 {
+    background: linear-gradient(to right, rgba(128, 0, 128, 0.05), rgba(128, 0, 128, 0.02)); /* Opacidade reduzida */
+}
+tr.loja-4 {
+    background: linear-gradient(to right, rgba(50, 205, 50, 0.05), rgba(50, 205, 50, 0.02)); /* Opacidade reduzida */
+}
+tr.loja-5 {
+    background: linear-gradient(to right, rgba(255, 215, 0, 0.05), rgba(255, 215, 0, 0.02)); /* Opacidade reduzida */
+}
+tr.loja-6 {
+    background: linear-gradient(to right, rgba(0, 255, 255, 0.05), rgba(0, 255, 255, 0.02)); /* Opacidade reduzida */
+}
+tr.total {
+    background: linear-gradient(to right, rgba(200, 200, 200, 0.3), rgba(200, 200, 200, 0.15));
+    font-weight: 700;
+}
+
+/* Estilizando valores positivos e negativos */
+.positive {
+    color: #27ae60;
+    font-weight: 600;
+}
+
+.negative {
+    color: #c0392b;
+    font-weight: 600;
+}
+
+/* Estilizando ícones */
+.positive i, .negative i {
+    margin-right: 5px;
+}
